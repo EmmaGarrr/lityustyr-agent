@@ -1,0 +1,77 @@
+documents/views.py
+
+from rest_framework.generics import ListAPIView
+from rest_framework.generics import RetrieveAPIView
+
+class DocumentListView(ListAPIView):
+
+    queryset = Document.objects.all().order_by("-created_at")
+
+    serializer_class = DocumentSerializer
+
+
+class DocumentDetailView(RetrieveAPIView):
+
+    queryset = Document.objects.all()
+
+    serializer_class = DocumentSerializer
+
+# documents/urls.py
+
+from django.urls import path
+
+from .views import (
+    DocumentDetailView,
+    DocumentListView,
+    DocumentUploadView,
+)
+
+urlpatterns = [
+    path(
+        "documents/",
+        DocumentUploadView.as_view(),
+        name="document-upload",
+    ),
+
+    path(
+        "documents/list/",
+        DocumentListView.as_view(),
+        name="document-list",
+    ),
+
+    path(
+        "documents/<int:pk>/",
+        DocumentDetailView.as_view(),
+        name="document-detail",
+    ),
+]
+
+
+
+
+
+# recommanded
+
+
+class DocumentView(APIView):
+
+    def get(self, request):
+        documents = Document.objects.all().order_by("-created_at")
+        serializer = DocumentSerializer(documents, many=True)
+        return Response(serializer.data)
+
+    def post(self, request):
+        # your existing upload code
+
+        urlpatterns = [
+    path(
+        "documents/",
+        DocumentView.as_view(),
+        name="documents",
+    ),
+    path(
+        "documents/<int:pk>/",
+        DocumentDetailView.as_view(),
+        name="document-detail",
+    ),
+]
