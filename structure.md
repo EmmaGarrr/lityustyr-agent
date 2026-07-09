@@ -1,18 +1,32 @@
-backend/
+document_ai/
+
+│
+├── manage.py
+│
+├── document_ai/
+│      __init__.py
+│      settings.py
+│      urls.py
+│      asgi.py
+│      wsgi.py
 │
 ├── documents/
-│   ├── models.py
-│   ├── serializers.py
-│   ├── views.py
-│   ├── urls.py
-│   ├── services.py
-│   └── utils.py
+│      migrations/
+│      __init__.py
+│      admin.py
+│      apps.py
+│      models.py
+│      serializers.py
+│      views.py
+│      urls.py
+│      utils.py
+│      gemini.py
 │
 ├── media/
 │
-├── backend/
+├── requirements.txt
 │
-└── manage.py
+└── .env
 
 
 PyMuPDF GitHub: PyMuPDF GitHub
