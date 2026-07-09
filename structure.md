@@ -13,3 +13,9 @@ backend/
 ├── backend/
 │
 └── manage.py
+
+
+PyMuPDF GitHub: PyMuPDF GitHub
+PyMuPDF Documentation: PyMuPDF Documentation
+Official Google Gemini Python SDK: Google Gen AI SDK for Python
+Django REST Framework: Django REST Framework
